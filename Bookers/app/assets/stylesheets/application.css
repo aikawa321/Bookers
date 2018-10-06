@@ -17,11 +17,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #6c6b6b;
+  color: #000;
 }
 a {
   text-decoration: underline;
   color: #000;
+}
+a:visited {
+    color: #666;
 }
 .clearfix::after {
   content: "";
@@ -58,4 +61,81 @@ p{
     margin-left: 2em;
     margin-right: 2em;
 	color: #333;
+
+}
+.success{
+	color:green;
+
+}
+.title,.body,.success{
+
+	display: block;
+}
+th{
+	padding-bottom: 5px;
+	font-weight: bold;
+	text-align: center;
+	color:black;
+}
+td{
+	padding-bottom:7px;
+	padding-left:5px;
+	padding-right: 5px
+}
+p #notice{
+	color:green;
+}
+div{
+	display:block;
+	margin-bottom: 10px;
+}
+#error_explanation{
+	width:450px;
+	border:2px solid red;
+	padding:7px;
+	padding-bottom:0px;
+	margin-bottom:20px;
+	background-color:#f0f0f0;
+}
+#error_explanation h2{
+font-size:12px;
+margin:-7px;
+padding:5px 5px 12px 15px;
+text-align: left;
+}
+.error-head{
+	text-align: left;
+	font-weight: bold;
+	color:white;
+	background-color: #c00;
+	padding-left:5px;
+}
+.error-text-box{
+	
+font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 33px;
+}
+li{
+	display: list-item;
+	list-style-type: square;
+	text-align: inherit;
+
+}
+.error-text{
+	text-decoration: none;
+	padding-top:5px;
+}
+.field_with_errors{
+	padding: 2px;
+    background-color: red;
+    display: table;
+}
+label{
+	display: inline-block;
+	cursor: default;
+}
+.error-book{
+	background-color:red;
 }
