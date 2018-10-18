@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="body">
+		<div class="container">
+			<div class="row">
+				<!-- user info -->
+				<%= render 'books/list', book: @book, user: @user %>
+				<!-- form -->
+				<div class="col-xs-9">
+					<table class="table table-striped">
+						<h2>Books</h2>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Title</th>
+								<th>Opinion</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+						<% @books.each do |book| %>
+							<tr>
+								<td><%= attachment_image_tag book.user, :image, :fill, 50, 50, format: 'jpeg', class: "img-square  profile-img",fallback: "no_image.jpg" %></td>
+								<td><%= link_to book.title, book_path(book.id), class: "book_#{book.id}" %></td>
+								<td><%= book.opinion %></td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%= render 'books/footer' %>
+</body>
+</html>
