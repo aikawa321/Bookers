@@ -34,10 +34,10 @@
 				</table>
 				<%if @user == current_user %>
 				<div>
-					<%= link_to"",edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edeit_user_#{user.id}" %>
+					<%= link_to"",edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
 				</div>
 				<% else %>
-				<%= link_to"",user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edeit_user_#{user.id}" %>
+				<%= link_to"",user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{user.id}" %>
 			<% end %>
                  <!-- user info -->
                 <!-- bookの投稿form -->
