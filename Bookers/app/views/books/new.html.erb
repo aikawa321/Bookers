@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebcampBackendNew</title>
+</head>
+<body>
+	<!-- succesfllyのフラッシュ用の設定 -->
+	<% if flash[:notice] %>
+  	<p class=success><%= flash[:notice] %></p>
+	<% end %>
+	<h1>Books</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Body</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @books.each do |book| %>
+		<tr>
+			<td><%= book.title %></td>
+			<td><%= book.body %></td>
+			<td><%= link_to'Show',show_book_path(book.id), class:"show_#{book.id}" %><td>
+			<td><%= link_to'Edit',edit_book_path(book.id), class:"edit_#{book.id}" %><td>
+			<td><%= link_to'Destroy',destroy_book_path(book.id), class:"destroy_#{book.id}",method: :delete,"date-confirm" =>"Are you sure?" %><td>
+
+			<% end %>
+		</tr>
+	</tbody>
+</table>
+	
+
+	<h1>New book</h1>
+	<!-- バリデーションエラーをビューに表示 -->
+	<% if @book.errors.any? %>
+		<div id="error_explanation">
+			<h2 class=error-head><%= @book.errors.count %> errors prohibited this book from being saved:</h2>
+			<ul class=error-text-box>
+				<% @book.errors.full_messages.each do |msg|%>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<!-- form_for部分 -->
+	<%= form_for(@book) do |f| %>
+ 	<div id=book_title>
+	<% if @book.errors.any? %>
+    	<label class="error-book"> Title </label>
+    	<% else %>
+    	<label class="title"> Title </label>
+    	<% end %>
+    <%= f.text_field :title, class:"book_title" %>
+	</div>
+	<div id="book-body">
+		<% if @book.errors.any? %>
+    	<label class="error-book"> Body </label>
+    	<% else %>
+    	<label class="body"> Body </label>
+    	<% end %>
+    	<%= f.text_area :body, class:"book_body" %>
+ 	</div>
+ 	<div>
+    	<%= f.submit ' Create Book ' %>
+ 	</div>
+	<% end %>
+	
+</body>
+</html>
